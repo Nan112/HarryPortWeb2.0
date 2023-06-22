@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="cn">
+    <head>
+        <meta charset="UTF-8">
+        <title>HarryPotter</title>
+        <link rel="stylesheet" href="../css/intro.css">
+        <script src="../js/vue.js"></script>
+    </head>
+<body>
+    <!-- 头部 -->
+    <header>
+        <nav>
+            <a href="./index.html" class="logo">
+                <img src="../image/logo.png" width="20%" >
+            </a>
+            <ul class="navigation-bar">
+                <li><a href="./index.html">首页总览</a></li>
+                <li><a href="./intro.html">角色鉴赏</a></li>
+                <li><a href="./images.html">照片鉴赏</a></li>
+                <li><a href="./more.html">更多资讯</a></li>
+                <li><a href="./shop.html">系列商城</a></li>
+            </ul>
+        </nav>
+        <div class="titleText">
+            <h2>Welcome</h2>
+            <h1>TO HARRYPOTTER'S</h1>
+            <span>website</span>
+        </div>
+    </header>
+
+    <!-- 内容 -->
+    <div class="part">
+        <!-- 学院介绍 -->
+        <div class="xueyuan">
+            <p>学院介绍</p>
+        </div>
+        <div id="actor">
+            <ul>
+                <li class="bg" :class="{active: index === nowIndex}" v-for="(item,index) in myItems" @click="toggleView(index)">{{item.name}}</li>
+            </ul>
+            <div class="tapcontent">
+                <component :is="view"></component>
+            </div>
+        </div>
+
+        <!-- 人物 -->
+        <div class="juese">
+                <p>角色鉴赏</p>
+            </div>
+        <div class="renwu">
+        <div id="infocard">
+    
+            <card v-for="character in characters">
+                <img slot="img" :src="character.image">
+                <p slot="character" class="title is-2 character">{{ character.name }}</p>
+                <p>{{ character.bio }}</p>
+                <div class="info" slot="info">
+                  <span><strong>Born</strong> {{ character.born }}</span>
+                  <span><strong>College</strong> {{ character.college }}</span>
+                </div>
+              </card>
+
+        </div>
+
+        <template id="card">
+            <div class="card">
+              <!-- IMAGE -->
+              <div class="card-image">
+                <figure class="image is-16by9">
+                  <slot name="img"></slot>
+                </figure>
+              </div>
+              <!-- INFO -->
+              <div class="card-content">
+                <slot name="character"></slot>
+                <div class="content">
+                  <slot></slot>
+                </div>
+                <slot name="info"></slot>
+              </div>
+            </div>
+          </template>
+        </div>
+    </div>
+
+
+            <!-- 右侧固定信息组件 -->
+    <div class="xinxi">
+                <p>个人信息</p>
+                <img src="../image/123.jpg">
+                <p>姓名：李温妮</p>
+    </div>
+
+            <!-- 尾部个人信息 -->
+    <footer>
+                <div class="quyu">
+                    <div class="leftbox">
+                        <table>
+                            <tr height="100" align="center" ><td><h2>站长信息</h2></td></tr>
+                            <tr height="100">
+                                <td align="center" width="300"><img src="../image/123.jpg"></td>
+                                <td>
+                                    <p>姓名：李温妮</p>
+                                    <p>学号：2020120310120</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="rightbox">
+                        <table>
+                            <tr height="100" align="center" ><td><h2>素材来源</h2></td></tr>
+                            <tr height="100">
+                                <td align="center" width="500">
+                                    <p>HarryPotter官网</p>
+                                    <p>HarryPotter微信公众号</p>
+                                    <p class="qinqianshan">侵歉删</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+     </footer>
+    <script src="../js/intro.js"></script>
+</body>
+</html>

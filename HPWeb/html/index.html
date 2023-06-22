@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="cn">
+    <head>
+        <meta charset="UTF-8">
+        <title>HarryPotter</title>
+        <link rel="stylesheet" href="../css/index.css">
+        <script src="../js/vue.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="./index.html" class="logo">
+                    <img src="../image/logo.png" width="20%" >
+                </a>
+                <ul class="navigation-bar">
+                    <li><a href="./index.html">首页总览</a></li>
+                    <li><a href="./intro.html">角色鉴赏</a></li>
+                    <li><a href="./images.html">照片鉴赏</a></li>
+                    <li><a href="./more.html">更多资讯</a></li>
+                    <li><a href="./shop.html">系列商城</a></li>
+                </ul>
+            </nav>
+            <div class="titleText">
+                <h2>Welcome</h2>
+                <h1>TO HARRYPOTTER'S</h1>
+                <span>website</span>
+            </div>
+        </header>
+        <!-- 人物介绍 -->
+        <div class="part1"> 
+            <div class="juese">
+                <p>角色鉴赏</p>
+                <div class="gengduo" >
+                    <a href="./intro.html">更多内容</a>
+                </div>
+            </div>
+            <div class="chose">
+                <div class="card">
+                    <div class="photo">
+                        <img src="../image/头像.jpg" alt="1">
+                    </div>
+                    <h1>哈利波特</h1>
+                    <h2>HarryPotter</h2>
+                    <p>哈利从小受尽苦难，并没有被苦难压倒，而有志气做一名本事高强的巫师。</p>
+                    <a href="../html/intro.html">了解更多</a>
+                </div>
+                <div class="card">
+                    <div class="photo">
+                        <img src="../image/头像2.jpg" alt="2">
+                    </div>
+                    <h1>罗恩韦斯莱</h1>
+                    <h2>Ron Weasley</h2>
+                    <p>哈利的好友，书中的喜剧角色。和哈利是铁哥们，最后和赫敏结婚，并和哈利在魔法部成为同事。</p>
+                    <a href="../html/intro.html">了解更多</a>
+                </div>
+                <div class="card">
+                    <div class="photo">
+                        <img src="../image/头像3.jpg" alt="3">
+                    </div>
+                    <h1>赫敏格兰杰</h1>
+                    <h2>Hermione Granger</h2>
+                    <p>赫敏格兰杰是小说《哈利·波特》系列主角之一，于1979年9月19日生于一个普通中产阶级家庭。</p>
+                    <a href="../html/intro.html">了解更多</a>
+                </div>
+            </div>
+        </div>
+        <!-- 图片鉴赏 -->
+        <div class="part2">
+            <div class="tupian">
+                <p>照片鉴赏</p>
+                <div class="gengduo" >
+                    <a href="./images.html">更多内容</a>
+                </div>
+            </div>
+            <div class="lunbotu">
+            <!-- 放图片 -->
+                <div class="banner-box"></div>
+            <!-- 左右图标 -->
+                <button class="slide-left-btn">&lt</button>
+                <button class="slide-right-btn">&gt</button>
+                <div class="pagination-box"></div>
+            </div>
+        </div>
+        <!-- 更多资讯 -->
+        <div class="part3">
+            <div class="zixun">
+                <p>更多资讯</p>
+                <div class="gengduo" >
+                    <a href="./more.html">更多内容</a>
+                </div>
+            </div>
+            <div class="out" id="zixun">
+                <div class="box">
+                    <a href="./more.html">
+                        <img src="../image/31.png">
+                        <!-- <p>霍格沃茨遗产：官方游戏指南即将从Scholastic推出</p>
+                        <p>作者：魔法世界团队</p> -->
+                        <p>{{jieshao1.xiaozi}}</p>
+                        <p>{{jieshao1.zuozhe}}</p>
+                    </a>  
+                </div>
+                <div class="box">
+                    <a href="./more.html">
+                        <img src="../image/32.jpg">
+                        <!-- <p>霍格沃茨遗产：官方游戏指南即将从Scholastic推出</p>
+                        <p>作者：魔法世界团队</p> -->
+                        <p>{{jieshao2.xiaozi}}</p>
+                        <p>{{jieshao2.zuozhe}}</p>
+                    </a>  
+                </div>
+                <div class="box">
+                    <a href="./more.html">
+                        <img src="../image/33.jpg">
+                        <!-- <p>霍格沃茨遗产：官方游戏指南即将从Scholastic推出</p>
+                        <p>作者：魔法世界团队</p> -->
+                        <p>{{jieshao3.xiaozi}}</p>
+                        <p>{{jieshao3.zuozhe}}</p>
+                    </a> 
+                </div>
+                <div class="box">
+                    <a href="./more.html">
+                        <img src="../image/34.jpeg">
+                        <!-- <p>霍格沃茨遗产：官方游戏指南即将从Scholastic推出</p>
+                        <p>作者：魔法世界团队</p> -->
+                        <p>{{jieshao4.xiaozi}}</p>
+                        <p>{{jieshao4.zuozhe}}</p>
+                    </a> 
+                </div>
+                <div class="box">
+                    <a href="./more.html">
+                        <img src="../image/31.png">
+                        <!-- <p>霍格沃茨遗产：官方游戏指南即将从Scholastic推出</p>
+                        <p>作者：魔法世界团队</p> -->
+                        <p>{{jieshao1.xiaozi}}</p>
+                        <p>{{jieshao1.zuozhe}}</p>
+                    </a>    
+                </div>
+                <div class="box">
+                    <a href="./more.html">
+                        <img src="../image/32.jpg">
+                        <!-- <p>霍格沃茨遗产：官方游戏指南即将从Scholastic推出</p>
+                        <p>作者：魔法世界团队</p> -->
+                        <p>{{jieshao2.xiaozi}}</p>
+                        <p>{{jieshao2.zuozhe}}</p>
+                    </a> 
+                </div>
+                <div class="box">
+                    <a href="#">
+                        <img src="../image/33.jpg">
+                        <!-- <p>霍格沃茨遗产：官方游戏指南即将从Scholastic推出</p>
+                        <p>作者：魔法世界团队</p> -->
+                        <p>{{jieshao3.xiaozi}}</p>
+                        <p>{{jieshao3.zuozhe}}</p>
+                    </a> 
+                </div>
+                <div class="box">
+                    <a href="./more.html">
+                        <img src="../image/34.jpeg">
+                        <!-- <p>霍格沃茨遗产：官方游戏指南即将从Scholastic推出</p>
+                        <p>作者：魔法世界团队</p> -->
+                        <p>{{jieshao4.xiaozi}}</p>
+                        <p>{{jieshao4.zuozhe}}</p>
+                    </a>  
+                </div>
+            </div>
+        </div>
+        <!-- 系列商城 -->
+        <div class="part4">
+            <div class="shangcheng">
+                <p>系列商城</p>
+                <div class="gengduo" >
+                    <a href="./shop.html">更多内容</a>
+                </div>
+            </div>
+            <div class="out" id="shangcheng">
+                <div class="box">
+                    <a href="./shop.html">
+                        <img src="../image/product1.jpg">
+                        <p>{{jieshao1.xiaozi}}</p>
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="./shop.html">
+                        <img src="../image/product2.jpg">
+                        <p>{{jieshao2.xiaozi}}</p>
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="./shop.html">
+                        <img src="../image/product3.jpg">
+                        <p>{{jieshao3.xiaozi}}</p>
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="./shop.html">
+                        <img src="../image/product4.png">
+                        <p>{{jieshao4.xiaozi}}</p>
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="./shop.html">
+                        <img src="../image/product1.jpg">
+                        <p>{{jieshao1.xiaozi}}</p>
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="./shop.html">
+                        <img src="../image/product2.jpg">
+                        <p>{{jieshao2.xiaozi}}</p>
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="./shop.html">
+                        <img src="../image/product3.jpg">
+                        <p>{{jieshao3.xiaozi}}</p>
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="./shop.html">
+                        <img src="../image/product4.png">
+                        <p>{{jieshao4.xiaozi}}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- 右侧固定信息组件 -->
+        <div class="xinxi">
+            <p>个人信息</p>
+            <img src="../image/123.jpg">
+            <p>姓名：李温妮</p>
+        </div>
+        <!-- 尾部个人信息 -->
+        <footer>
+            <div class="quyu">
+                <div class="leftbox">
+                    <table>
+                        <tr height="100" align="center" ><td><h2>站长信息</h2></td></tr>
+                        <tr height="100">
+                            <td align="center" width="300"><img src="../image/123.jpg"></td>
+                            <td>
+                                <p>姓名：李温妮</p>
+                                <p>学号：2020120310120</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="rightbox">
+                    <table>
+                        <tr height="100" align="center" ><td><h2>素材来源</h2></td></tr>
+                        <tr height="100">
+                            <td align="center" width="500">
+                                <p>HarryPotter官网</p>
+                                <p>HarryPotter微信公众号</p>
+                                <p class="qinqianshan">侵歉删</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </footer>
+        <script src="../js/index.js"></script>
+    </body>
+</html>

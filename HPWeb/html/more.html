@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+        <meta charset="UTF-8">
+        <title>HarryPotter</title>
+        <link rel="stylesheet" href="../css/more.css">
+        <link rel="stylesheet" href="../css/comment.css">
+        <script src="../js/jquery-3.1.1.min.js"></script>
+        <script src="../js/vue.js"></script>
+        <script src="../js/vue2.5.13.js"></script>
+<body>
+        <!-- 头部 -->
+<header>
+    <nav>
+        <a href="./index.html" class="logo">
+            <img src="../image/logo.png" width="20%" >
+        </a>
+        <ul class="navigation-bar">
+            <li><a href="./index.html">首页总览</a></li>
+            <li><a href="./intro.html">角色鉴赏</a></li>
+            <li><a href="./images.html">照片鉴赏</a></li>
+            <li><a href="./more.html">更多资讯</a></li>
+            <li><a href="./shop.html">系列商城</a></li>
+        </ul>
+    </nav>
+    <div class="titleText">
+        <h2>Welcome</h2>
+        <h1>TO HARRYPOTTER'S</h1>
+        <span>website</span>
+    </div>
+</header>
+
+<!-- 第一部分内容：新闻 -->
+<div class="part1">
+    <div class="xinwen">
+        <p>新闻列表</p>
+    </div>
+
+    <!-- 搜索界面 -->
+    <form id="main" v-cloak>
+
+        <div class="bar">
+            <input type="text" v-model="searchString" placeholder="请输入文字" />
+        </div>
+    
+        <ul>
+                
+            <li v-for="article in filteredArticles">
+                <a class="header__login"><img v-bind:src="article.image" /></a>
+                <p>{{article.title}}</p>
+            </li>
+        </ul>
+    
+    </form>
+
+    <!-- 弹出详细信息 -->
+    <div class="mhy-account-flow mhy-account-flow-dialog ys-theme is-pc" style="display: none;" id="login">
+        <div class="mhy-account-flow-dialog-content">
+            <div class="mhy-account-flow-login">
+                <img src="../image/logo.png" class="logo">
+                <img src="../image/X.png" class="close-icon">
+                <table>
+                    <tr>
+                        <img src="../image/31.png" />
+                        <h3>霍格沃茨遗产：官方游戏指南即将从Scholastic推出</h3>
+                    </tr>
+                    <tr><p style="color:black;text-indent:2em;">在本官方游戏指南中，您将发现有关游戏中发现的全新角色和地点的独家信息，以及解锁隐藏的秘密和完成游戏各种任务的其他提示。在书的后面记录你的成就，查找魔法世界的术语，并简单地深入研究霍格沃茨遗产的许多奥秘。</p></tr>
+                    <tr><p style="color:black;text-indent:2em;">友情提醒，游戏本身，霍格沃茨遗产，将于 2023 年 2 月 10 日在 PlayStation、Xbox 和 PC 上推出。Nintendo Switch的发布日期将很快公布。</p></tr>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<!-- 第二部分内容：评论 -->
+<div class="part2" >
+    <div class="xinwen">
+        <p>讨论区</p>
+    </div>
+    <div class="segment" id="app">
+        <!-- 输入部分 -->
+        <div class="ui action fluid input left icon">
+            <input type="text" placeholder="在此输入文字" v-model="currentMessage" @keydown.enter="sendText">
+            <button class="ui primary button" @click="sendText" v-bind:disabled="!currentMessageValid">
+              发送
+            </button>
+          </div>
+        <!-- 显示部分 -->
+        <div class="ui comments">
+                <h3 class="ui dividing header">评论 {{ messages.length }}</h3>
+            
+            <transition-group appear>
+            <div class="comment" :key="message.text" v-for="(message,index) in messages" >
+              <a class="avatar"><img src="../image/matt.jpg"></a>
+              <div class="content">
+                <a class="author">游客</a>
+                <div class="metadata">
+                  <span class="date" >{{ message.date }}</span>
+                </div>
+                <div class="text">{{message.text}}</div>
+                <div class="actions">
+                  <a @click="deleteMessage(index)">删除</a>
+                </div>
+              </div>
+            </div>  
+          </div>
+        </transition-group>
+    </div>
+</div>
+
+         <!-- 右侧固定信息组件 -->
+<div class="xinxi">
+    <p>个人信息</p>
+    <img src="../image/123.jpg">
+    <p>姓名：李温妮</p>
+ </div>
+                
+             <!-- 尾部个人信息 -->
+<footer>
+    <div class="quyu">
+        <div class="leftbox">
+            <table>
+                 <tr height="100" align="center" ><td><h2>站长信息</h2></td></tr>
+                 <tr height="100">
+                    <td align="center" width="300"><img src="../image/123.jpg"></td>
+                    <td>
+                        <p>姓名：李温妮</p>
+                        <p>学号：2020120310120</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="rightbox">
+            <table>
+                <tr height="100" align="center" ><td><h2>素材来源</h2></td></tr>
+                <tr height="100">
+                    <td align="center" width="500">
+                        <p>HarryPotter官网</p>
+                        <p>HarryPotter微信公众号</p>
+                        <p class="qinqianshan">侵歉删</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</footer>
+ <script src="../js/more.js"></script>
+</body>
+</html>

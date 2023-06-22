@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="cn">
+    <head>
+        <meta charset="UTF-8">
+        <title>HarryPotter</title>
+        <link rel="stylesheet" href="../css/images.css">
+        <script src="../js/vue.js"></script>
+        <script src="../js/vue.min.js"></script>
+        <script src="../js/lightbox.js"></script>
+</head>
+<body>
+        <!-- 头部 -->
+    <header>
+        <nav>
+            <a href="./index.html" class="logo">
+                <img src="../image/logo.png" width="20%" >
+            </a>
+            <ul class="navigation-bar">
+                <li><a href="./index.html">首页总览</a></li>
+                <li><a href="./intro.html">角色鉴赏</a></li>
+                <li><a href="./images.html">照片鉴赏</a></li>
+                <li><a href="./more.html">更多资讯</a></li>
+                <li><a href="./shop.html">系列商城</a></li>
+            </ul>
+        </nav>
+        <div class="titleText">
+            <h2>Welcome</h2>
+            <h1>TO HARRYPOTTER'S</h1>
+            <span>website</span>
+        </div>
+    </header>
+
+<!-- 内容 -->
+<div class="part" id="photo">
+    <div class="zhaopian">
+        <p>照片鉴赏</p>
+    </div>
+
+    <div id="filters">
+        <form><fieldset>
+          <legend>分类</legend>
+          <span>
+            <input type="radio" id="all" 
+              name="filters" checked
+              v-on:click="updateFilter('all')"/>
+            <label for="all">全部</label>
+          </span>
+          <span>
+            <input type="radio" id="Stills"
+                name="filters" 
+                v-on:click="updateFilter('Stills')"/>
+            <label for="Stills">剧照</label>
+          </span>
+          <span>
+            <input type="radio" id="Behindstage" 
+               name="filters" 
+               v-on:click="updateFilter('Behindstage')" />
+            <label for="Behindstage">幕后</label>
+          </span>
+        </fieldset></form>
+      </div>
+
+      <transition-group name="thumbnailfade" tag="div">
+        <img v-for="thumb in filteredImages" 
+             :key="thumb.id" 
+             @click="showLightbox(thumb.name)"  
+             :src="thumbnailDir + thumb.name" 
+             :alt="thumb.alt" 
+             :title="thumb.alt" />
+      </transition-group>
+
+      <lightbox id="mylightbox" 
+      ref="lightbox"
+      :images="images"
+      :directory="thumbnailDir"
+      :filter="galleryFilter"
+      :timeout-duration=5000
+      :close-on-backdrop-click=true
+        />
+</div>
+
+
+
+
+
+
+                <!-- 右侧固定信息组件 -->
+    <div class="xinxi">
+        <p>个人信息</p>
+            <img src="../image/123.jpg">
+        <p>姓名：李温妮</p>
+    </div>
+    
+                <!-- 尾部个人信息 -->
+    <footer>
+        <div class="quyu">
+            <div class="leftbox">
+                <table>
+                    <tr height="100" align="center" ><td><h2>站长信息</h2></td></tr>
+                    <tr height="100">
+                        <td align="center" width="300"><img src="../image/123.jpg"></td>
+                        <td>
+                            <p>姓名：李温妮</p>
+                            <p>学号：2020120310120</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        <div class="rightbox">
+            <table>
+                <tr height="100" align="center" ><td><h2>素材来源</h2></td></tr>
+                <tr height="100">
+                    <td align="center" width="500">
+                        <p>HarryPotter官网</p>
+                        <p>HarryPotter微信公众号</p>
+                        <p class="qinqianshan">侵歉删</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        </div>
+    </footer>
+    
+        <script src="../js/images.js"></script>
+        
+</body>
+</html>

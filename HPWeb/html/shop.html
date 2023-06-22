@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+        <meta charset="UTF-8">
+        <title>HarryPotter</title>
+        <link rel="stylesheet" href="../css/shop.css">
+        <script src="../js/vue.js"></script>
+</head>
+<body>
+        <!-- 头部 -->
+<header>
+    <nav>
+        <a href="./index.html" class="logo">
+            <img src="../image/logo.png" width="20%" >
+        </a>
+        <ul class="navigation-bar">
+            <li><a href="./index.html">首页总览</a></li>
+            <li><a href="./intro.html">角色鉴赏</a></li>
+            <li><a href="./images.html">照片鉴赏</a></li>
+            <li><a href="./more.html">更多资讯</a></li>
+            <li><a href="./shop.html">系列商城</a></li>
+        </ul>
+    </nav>
+    <div class="titleText">
+        <h2>Welcome</h2>
+        <h1>TO HARRYPOTTER'S</h1>
+        <span>website</span>
+    </div>
+</header>
+
+<!-- 内容 -->
+<div class="part">
+    <!-- 名称 -->
+    <div class="shangcheng">
+        <p>商品列表</p>
+    </div>
+
+    <!-- 分类行 -->
+    <div id="app">
+        <div class="container">
+          <nav class="well well-sm">
+            <a @click.prevent="isShowingCart = false"><strong>商品列表</strong></a>
+               <div class="text-right pull-right">
+              <span class="stats">
+                {{cart.items.length}}
+            <template v-if="cart.items.lenght == 1">item</template>
+            <template v-else>商品</template>
+              在购物车中，一共 {{ cartTotal | currency}}
+              <button class="btn btn-primary" @click="isShowingCart = true">查看购物车</button>
+               </span>
+          </div>
+
+          </nav>
+      
+          <div v-if="!isShowingCart" id="products" class="row">
+            <div v-for="product in products" :class="groupWrapper" class="item col-xs-4 col-lg-4" >
+                <div class="thumbnail">
+            <img class="group list-group-image" src="../image/product5.jpg" alt=""/>
+            <div class="caption">
+              <h4 class="group inner list-group-item-heading">
+                {{product.name}}
+              </h4>
+              <p class="group inner list-group-item-text">
+                {{product.description}}
+              </p>
+              <div class="row">
+                <div class="col-xs-12 col-md-6">
+                  <p class="lead">
+                   {{product.price | currency}}</p>
+                </div>
+                <div class="col-xs-8 flex flex-row align-center justify-right">
+                  <div class="number-in-stock" :class="{ few: product.inStock < 10 && product.inStock > 0, none: product.inStock == 0 }">
+                    {{product.inStock}} 库存
+                  </div>
+                  <button class="btn btn-success" 
+                          @click="addProductToCart(product)" :disabled="product.inStock == 0">加入购物车</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+            
+          </div>
+         
+          <div v-else>
+            <h1>购物车</h1>
+            <table v-if="cart.items.length > 0" class="table table-striped">
+              <thead>
+                <tr>
+                  <th>商品</th>
+                  <th>数量</th>
+                  <th>价格</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="item in cart.items">
+                  <td>{{ item.product.name }}</td>
+                  <td>
+                    {{ item.quantity }} &nbsp;
+                    <button class="btn btn-success" @click="increaseQuantity(item)" :disabled="item.product.inStock == 0">+</button>
+                    <button class="btn btn-danger" @click="decreaseQuantity(item)">-</button>
+                  </td>
+                  <td>{{ item.quantity * item.product.price | currency}}</td>
+                </tr>
+                <tr>
+                  <td class="text-right" colspan="2">
+                    <strong>总金额</strong>
+                  </td>
+                  <td>{{ cartTotal | currency}}</td>
+                </tr>
+                <tr>
+                  <td colspan="2"></td>
+                  <td><button class="btn btn-success" @click="checkout">确认</button></td>
+                </tr>
+                
+              </tbody>
+              
+            </table>
+            
+            
+            <p v-else> 当前购物车为空</p>
+            
+           
+          </div>
+          </div>
+      </div>
+
+</div>
+
+
+
+         <!-- 右侧固定信息组件 -->
+         <div class="xinxi">
+            <p>个人信息</p>
+            <img src="../image/123.jpg">
+            <p>姓名：李温妮</p>
+         </div>
+                        
+                     <!-- 尾部个人信息 -->
+        <footer>
+            <div class="quyu">
+                <div class="leftbox">
+                    <table>
+                         <tr height="100" align="center" ><td><h2>站长信息</h2></td></tr>
+                         <tr height="100">
+                            <td align="center" width="300"><img src="../image/123.jpg"></td>
+                            <td>
+                                <p>姓名：李温妮</p>
+                                <p>学号：2020120310120</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="rightbox">
+                    <table>
+                        <tr height="100" align="center" ><td><h2>素材来源</h2></td></tr>
+                        <tr height="100">
+                            <td align="center" width="500">
+                                <p>HarryPotter官网</p>
+                                <p>HarryPotter微信公众号</p>
+                                <p class="qinqianshan">侵歉删</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </footer>
+         <script src="../js/shop.js"></script>
+</body>
+</html>
